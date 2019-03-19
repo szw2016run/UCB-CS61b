@@ -16,6 +16,11 @@ public class GuitarString {
         //       cast the result of this division operation into an int. For
         //       better accuracy, use the Math.round() function before casting.
         //       Your buffer should be initially filled with zeros.
+        int capacity =  (int) Math.round(SR/frequency);
+        buffer = new ArrayRingBuffer<>(capacity);
+        while(!buffer.isFall()){
+            buffer.enqueue(0.0);
+        }
     }
 
 
@@ -27,6 +32,27 @@ public class GuitarString {
         //
         //       Make sure that your random numbers are different from each
         //       other.
+        while(!buffer.isEmpty()){
+            buffer.dequeue();
+        }
+
+        double[] nonDuplicatedRandomDouble = new double[buffer.capacity()];
+        boolean isDuplicate = false;
+        int count = 0;
+        while(count < nonDuplicatedRandomDouble.length){
+            double r = Math.random() - 0.5;
+            for(int i = 0;i < nonDuplicatedRandomDouble.length;i++){
+                if(r==nonDuplicatedRandomDouble[i]){
+                    isDuplicate = true;
+                    break;
+                }
+                if(!isDuplicate){
+                    nonDuplicatedRandomDouble[count] = r;
+                    count += 1;
+                    buffer.enqueue(r);
+                }
+            }
+        }
     }
 
     /* Advance the simulation one time step by performing one iteration of
@@ -36,12 +62,21 @@ public class GuitarString {
         // TODO: Dequeue the front sample and enqueue a new sample that is
         //       the average of the two multiplied by the DECAY factor.
         //       Do not call StdAudio.play().
+        double oldFront = buffer.dequeue();
+        double doubleToEnqueue = (buffer.peek() + oldFront) / 2 * DECAY;
+        buffer.enqueue(doubleToEnqueue);
+
     }
 
     /* Return the double at the front of the buffer. */
     public double sample() {
         // TODO: Return the correct thing.
-        return 0;
+        return buffer.peek();
+    }
+
+    public static void main(String[] args){
+        GuitarString aString = new GuitarString(1800);
+        aString.pluck();
     }
 }
-    // TODO: Remove all comments that say TODO when you're done.
+// TODO: Remove all comments that say TODO when you're done.
