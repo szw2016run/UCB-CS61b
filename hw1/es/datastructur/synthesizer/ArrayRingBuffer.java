@@ -1,4 +1,5 @@
 package es.datastructur.synthesizer;
+import java.lang.reflect.Array;
 import java.util.Iterator;
 
 //TODO: Make sure to that this class and all of its methods are public
@@ -15,7 +16,7 @@ public class ArrayRingBuffer<T> implements BoundedQueue<T> {
     /* Array for storing the buffer data. */
     private T[] rb;
 
-    int capacity;
+    private int capacity;
 
 
     /**
@@ -97,7 +98,23 @@ public class ArrayRingBuffer<T> implements BoundedQueue<T> {
 
     }
 
-    public class BufferIterator implements Iterator<T>{
+    @Override
+    public boolean equals(Object o){
+        if (o == null) {
+            return false;
+        }
+        if (o.getClass() != this.getClass()) {
+            return false;
+        }
+        ArrayRingBuffer<T> that = (ArrayRingBuffer<T>) o;
+        if(that.fillCount() != this.fillCount()){
+            return false;
+        }
+        return true;
+
+    }
+
+    private class BufferIterator implements Iterator<T>{
         private int index;
 
         public BufferIterator(){

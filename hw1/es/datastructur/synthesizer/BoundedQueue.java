@@ -3,7 +3,7 @@ package es.datastructur.synthesizer;
 
 import java.util.Iterator;
 
-public interface BoundedQueue<T> extends Iterable<T> {//why I don't know
+public interface BoundedQueue<T> extends Iterable<T> { //why I don't know
 
     int capacity();
 
@@ -16,11 +16,11 @@ public interface BoundedQueue<T> extends Iterable<T> {//why I don't know
     T peek();
 
     default boolean isEmpty() {
-        return fillCount()==0;
+        return fillCount() == 0;
     }
 
     default boolean isFall() {
-        return capacity()==fillCount();
+        return capacity() == fillCount();
     }
 
     Iterator<T> iterator();
