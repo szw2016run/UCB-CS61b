@@ -11,11 +11,11 @@ public class IntList {
     /**
      * First element of list.
      */
-    public int first;
+    private int first;
     /**
      * Remaining elements of list.
      */
-    public IntList rest;
+    private IntList rest;
 
     /**
      * A List with first FIRST0 and rest REST0.
@@ -38,7 +38,7 @@ public class IntList {
      */
     public static void dSquareList(IntList L) {
 
-        while (L != null) {
+        while (L != null) { //最后L等于null
             L.first = L.first * L.first;
             L = L.rest;
         }
@@ -53,7 +53,7 @@ public class IntList {
         }
         IntList res = new IntList(L.first * L.first, null);
         IntList ptr = res;
-        L = L.rest;
+        L = L.rest; //并没有改变原来L的指向
         while (L != null) {
             ptr.rest = new IntList(L.first * L.first, null);
             L = L.rest;
@@ -81,12 +81,14 @@ public class IntList {
      */
 
     public static IntList dcatenate(IntList A, IntList B) {
-        //TODO:  fill in method
+
+        if (A == null ) {
+            return B;
+        }
         IntList p = A;
         while (p.rest != null) {
             p = p.rest;
         }
-
         p.rest = B;
         return A;
     }
@@ -96,8 +98,7 @@ public class IntList {
      * * elements of B.  May NOT modify items of A.  Use 'new'.
      */
     public static IntList catenate(IntList A, IntList B) {
-        //TODO:  fill in method
-        if(A == null){
+        if (A == null) {
             return B;
         }
         return new IntList(A.first, catenate(A.rest, B));
