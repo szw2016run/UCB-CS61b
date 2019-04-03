@@ -1,6 +1,5 @@
 import static org.junit.Assert.*;
 
-import edu.princeton.cs.algs4.In;
 import org.junit.Test;
 
 public class IntListTest {
