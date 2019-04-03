@@ -38,13 +38,13 @@ public class IntList {
      * This method is destructive. If given null
      * as an input, returns null.
      */
-    public static IntList reverse(IntList A){
-        if( A == null){
+    public static IntList reverse(IntList A) {
+        if ( A == null) {
             return null;
         }
         IntList frontOfReversed = null;
         IntList nextNodeToAdd = A;
-        while(nextNodeToAdd != null) {
+        while (nextNodeToAdd != null) {
             IntList remainderOfOriginal = nextNodeToAdd.rest;
             nextNodeToAdd.rest = frontOfReversed;
             frontOfReversed = nextNodeToAdd;
@@ -102,7 +102,7 @@ public class IntList {
 
     public static IntList dcatenate(IntList A, IntList B) {
 
-        if (A == null ) {
+        if (A == null) {
             return B;
         }
         IntList p = A;
