@@ -37,8 +37,8 @@ public class LinkedListDeque<T> {
         sentinel = new Node(null, null, null);
         sentinel.prev = sentinel;
         sentinel.next = sentinel;
-        for(int i = 0;i < other.size();i++) {
-            addLast((T)other.get(i));
+        for (int i = 0; i < other.size(); i++) {
+            addLast((T) other.get(i));
         }
 
     }
@@ -57,16 +57,16 @@ public class LinkedListDeque<T> {
         size += 1;
     }
 
-    public static void main(String[] args) {
-        LinkedListDeque<Integer> L = new LinkedListDeque<>();
-        L.addFirst(3);
-        L.addLast(5);
-        L.addFirst(1);
-        LinkedListDeque<Integer> M = new LinkedListDeque<>(L);
-
-        //System.out.println(L.get(2));
-        M.printDeque();
-    }
+//    public static void main(String[] args) {
+//        LinkedListDeque<Integer> L = new LinkedListDeque<>();
+//        L.addFirst(3);
+//        L.addLast(5);
+//        L.addFirst(1);
+//        LinkedListDeque<Integer> M = new LinkedListDeque<>(L);
+//
+//        //System.out.println(L.get(2));
+//        M.printDeque();
+//    }
 
     public boolean isEmpty() {
         return size == 0;
@@ -123,7 +123,7 @@ public class LinkedListDeque<T> {
 
         }
     }
-    public T traverse(Node n, int i) {
+    private T traverse(Node n, int i) {
         if (i == 0) {
             return n.item;
         } else {
