@@ -46,18 +46,18 @@ public class LinkedListDeque<Item> {
         size += 1;
     }
 
-    public static void main(String[] args) {
-        LinkedListDeque<Integer> L = new LinkedListDeque<>();
-        L.addFirst(3);
-        L.addLast(5);
-        L.addFirst(1);
-        System.out.println(L.removeLast());
-        System.out.println(L.removeLast());
-        System.out.println(L.removeLast());
-        System.out.println(L.removeLast());
-        //System.out.println(L.get(2));
-        //L.printDeque();
-    }
+//    public static void main(String[] args) {
+//        LinkedListDeque<Integer> L = new LinkedListDeque<>();
+//        L.addFirst(3);
+//        L.addLast(5);
+//        L.addFirst(1);
+//        System.out.println(L.removeLast());
+//        System.out.println(L.removeLast());
+//        System.out.println(L.removeLast());
+//        System.out.println(L.removeLast());
+//        //System.out.println(L.get(2));
+//        //L.printDeque();
+//    }
 
     public boolean isEmpty() {
         return size == 0;
