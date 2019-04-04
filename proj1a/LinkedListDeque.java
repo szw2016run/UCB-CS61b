@@ -32,6 +32,10 @@ public class LinkedListDeque<Item> {
         sentinel.next = sentinel;
     }
 
+    public LinkedListDeque(LinkedListDeque other) {
+        
+    }
+
     public void addFirst(Item item) {
         Node newNode = new Node(sentinel, item, sentinel.next);
         sentinel.next = newNode;
@@ -112,6 +116,22 @@ public class LinkedListDeque<Item> {
             }
             return p.item;
 
+        }
+    }
+    public Item traverse(Node n, int i) {
+        if (i == 0) {
+            return n.item;
+        } else {
+            return traverse(n.next, i - 1);
+        }
+    }
+
+
+    public Item getRecursive(int index) {
+        if (index > size - 1) {
+            return null;
+        } else {
+            return traverse(sentinel.next, index);
         }
     }
 
