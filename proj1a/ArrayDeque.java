@@ -19,9 +19,9 @@ public class ArrayDeque<T> {
     }
     public ArrayDeque(ArrayDeque other) {
         arr = (T[]) new Object[other.length()];
-        first = other.first;
-        nextLast = first;
-        nextFirst = first;
+        nextFirst = (arr.length - size) / 2;
+        nextLast = nextFirst + 1;
+        first = nextFirst;
         for (int i = 0; i < other.size(); i++) {
             addLast((T) other.get(i));
         }
@@ -30,7 +30,7 @@ public class ArrayDeque<T> {
     /*
     Resizes the underlying array to the target capacity.
      */
-    public void resize(int capacity) {
+    private void resize(int capacity) {
         T[] a = (T[]) new Object[capacity];
         int tempLength = arr.length - first;
         System.arraycopy(arr, first, a, (a.length / 2 - 1), tempLength);
