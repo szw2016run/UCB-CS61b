@@ -17,7 +17,7 @@ public class TestPalindrome {
     }
 
     @Test
-    public void testIsPalindrome(){
+    public void testIsPalindrome() {
         //Checking empty string case
         assertTrue(palindrome.isPalindrome(""));
 
