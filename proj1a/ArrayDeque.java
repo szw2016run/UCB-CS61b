@@ -128,7 +128,7 @@ public class ArrayDeque<T> {
         nextFirst = plusOne(nextFirst);
         T item = arr[nextFirst];
         arr[nextFirst] = null;
-        first = plusOne(first);//zy
+        first = plusOne(first); //zy
         size -= 1;
         checkResize();
         return item;
@@ -148,30 +148,30 @@ public class ArrayDeque<T> {
 
 
 
-    public static void main(String[] args) {
-        ArrayDeque<Integer> L = new ArrayDeque<>();
-        L.addLast(0);
-        L.addLast(1);
-        L.addLast(2);
-        L.removeFirst();//     ==> 0
-        L.addFirst(4);
-        L.removeLast();//      ==> 2
-        L.removeFirst();//     ==> 4
-        L.addLast(7);
-        L.addLast(8);
-        L.removeFirst();  //   ==> 1
-        L.get(1);      //==> 8
-        L.removeFirst();   // ==> 7
-        L.removeLast();    //  ==> 8
-        L.addLast(13);
-        L.removeLast();      //==> 13
-        L.addFirst(15);
-        L.removeFirst();    // ==> 15
-        L.addLast(17);
-        L.addLast(18);
-        L.removeFirst();//     ==> 17
-        L.get(0);     // L
-    }
+//    public static void main(String[] args) {
+//        ArrayDeque<Integer> L = new ArrayDeque<>();
+//        L.addLast(0);
+//        L.addLast(1);
+//        L.addLast(2);
+//        L.removeFirst(); //     ==> 0
+//        L.addFirst(4);
+//        L.removeLast(); //      ==> 2
+//        L.removeFirst(); //     ==> 4
+//        L.addLast(7);
+//        L.addLast(8);
+//        L.removeFirst();  //   ==> 1
+//        L.get(1);      //==> 8
+//        L.removeFirst();   // ==> 7
+//        L.removeLast();    //  ==> 8
+//        L.addLast(13);
+//        L.removeLast();      //==> 13
+//        L.addFirst(15);
+//        L.removeFirst();    // ==> 15
+//        L.addLast(17);
+//        L.addLast(18);
+//        L.removeFirst(); //     ==> 17
+//        L.get(0);     // L
+//    }
 
     /*
     Returns x + 1 for any given integer x.
