@@ -14,6 +14,18 @@ public class ArrayDeque<T> {
         nextLast = nextFirst + 1;
         first = nextFirst;
     }
+    private int length() {
+        return arr.length;
+    }
+    public ArrayDeque(ArrayDeque other) {
+        arr = (T[]) new Object[other.length()];
+        first = other.first;
+        nextLast = first;
+        nextFirst = first;
+        for (int i = 0; i < other.size(); i++) {
+            addLast((T) other.get(i));
+        }
+    }
 
     /*
     Resizes the underlying array to the target capacity.
@@ -110,7 +122,7 @@ public class ArrayDeque<T> {
     such item exits,return null.
      */
     public T removeFirst() {
-        if(isEmpty()) {
+        if (isEmpty()) {
             return null;
         }
         nextFirst = plusOne(nextFirst);
@@ -122,7 +134,7 @@ public class ArrayDeque<T> {
     }
 
     public T removeLast() {
-        if(isEmpty()) {
+        if (isEmpty()) {
             return null;
         }
         nextLast = minusOne(nextLast);
@@ -183,7 +195,7 @@ public class ArrayDeque<T> {
     Prints the items in the deque from first to last .separated by a space.
      */
     public void printDeque() {
-        for (int i = 0; i < size; i++ ) {
+        for (int i = 0; i < size; i++) {
             System.out.print(get(i) + " ");
         }
         System.out.println();
