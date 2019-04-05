@@ -1,6 +1,5 @@
 import org.junit.Test;
 import static org.junit.Assert.*;
-
 public class TestPalindrome {
     // You must use this palindrome, and not instantiate
     // new Palindromes, or the autograder might be upset.
@@ -23,6 +22,7 @@ public class TestPalindrome {
 
         //Checking length 1 string case
         assertTrue(palindrome.isPalindrome("a"));
+        assertTrue(palindrome.isPalindrome("Z"));
 
         //Checking true statements
         assertTrue(palindrome.isPalindrome("mom"));
@@ -53,4 +53,5 @@ public class TestPalindrome {
         assertFalse(palindrome.isPalindrome("awesome", test));
 
     }
+
 }     //Uncomment this class once you've created your Palindrome class. */
