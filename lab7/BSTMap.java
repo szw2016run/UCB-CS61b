@@ -4,12 +4,31 @@ import java.util.*;
  * BSTMap
  * Created by Rayn on 2015-09-16
  */
-public class BSTMap<K extends Comparable<K>, V> implements Map61B<K,V> {
+public class BSTMap<K extends Comparable<K>, V> implements Map61B<K, V> {
+
+    private class Node {
+
+        private K key;
+        private V val;
+        private Node left, right;
+        private int N;
+
+        public Node(K key, V val, int N) {
+            this.key = key;
+            this.val = val;
+            left = null;
+            right = null;
+            this.N = N;
+        }
+    }
 
     private Node root;
     private int size;
 
-    public BSTMap() {}
+    public BSTMap() {
+        root = null;
+        size = 0;
+    }
 
 
     @Override
@@ -36,9 +55,17 @@ public class BSTMap<K extends Comparable<K>, V> implements Map61B<K,V> {
     public void clear() {
         root = null;
     }
+    private void printInorder(){
+       printInorder(root);
+    }
 
-    public void printInOrder() {
-
+    private void printInorder(Node x) {
+        if (x == null) {
+            return;
+        }
+        printInorder(x.left);
+        System.out.println(x.val);
+        printInorder(x.right);
     }
 
     @Override
@@ -87,17 +114,18 @@ public class BSTMap<K extends Comparable<K>, V> implements Map61B<K,V> {
         return x.N;
     }
 
-    private class Node {
-
-        private K key;
-        private V val;
-        private Node left, right;
-        private int N;
-
-        public Node(K key, V val, int N) {
-            this.key = key;
-            this.val = val;
-            this.N = N;
-        }
+    //    public Iterable<T> iterator() {
+//
+//    }
+    public Iterator<K> iterator() {
+        throw new UnsupportedOperationException();
     }
+
+//    public static void main(String[] args) {
+//        BSTMap<Integer, Integer> b = new BSTMap<>();
+//        for (int i = 0; i < 45; i++) {
+//            b.put(i, i);
+//        }
+//        b.printInorder();
+//    }
 }
