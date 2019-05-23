@@ -2,6 +2,7 @@ public class HelloWorld{
     public static void  main(String[] args){
         System.out.println("Hello World");
         System.out.println("尚文静我爱你");
+        System.out.println("加油！")
         int i=1;
         while(i<=5){
             int j = 1;
